@@ -110,7 +110,7 @@ class MyDirectory extends Component {
 
 ```
 
-See [`example` folder](/example) for more examples, and online [demo]().
+See [`example` folder](/example) for more examples, and online [demo](https://woodpig07.github.io/react-nested-file-tree/).
 
 ## API
 
