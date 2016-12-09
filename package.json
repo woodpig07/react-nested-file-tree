@@ -1,10 +1,12 @@
 {
   "name": "nested-file-tree",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React component for file directory",
-  "main": "lib/index.js",
+  "main": "lib/NestedFileTreeView.js",
+  "style": "dist/default.css",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "build:lib": "NODE_ENV=production babel src -d lib --ignore index.js,__test__/*",
+    "build:dist": "NODE_ENV=production webpack -p --config webpack.production.config.js",
     "lint": "snazzy --verbose",
     "test": "./node_modules/karma/bin/karma start",
     "example": "webpack-dev-server --config example/webpack.config.js --content-base example",
@@ -14,12 +16,17 @@
     "react",
     "file",
     "directory",
-    "nested",
-    "data",
-    "structure"
+    "nested"
   ],
+  "engines": {
+    "node": ">=4.4.4"
+  },
   "author": "woodpig07@gamil.com",
-  "license": "ISC",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",

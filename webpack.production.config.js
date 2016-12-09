@@ -3,12 +3,13 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
+  devtool: 'source-map',
   debug: false,
   context: path.resolve(__dirname, 'src'),
   entry: './index.js',
   output: {
-    filename: 'index.js',
-    path: './lib',
+    filename: 'react-nested-file-tree.js',
+    path: './dist',
     library: 'NestedFileTreeView',
     libraryTarget: 'umd'
   },
@@ -40,9 +41,5 @@ module.exports = {
       test: /\.styl$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
     }]
-  },
-  // stylus: {
-  //   use: [require('nib')()],
-  //   import: path.join(__dirname, '../node_modules/nib/index.styl')
-  // }
+  }
 }
