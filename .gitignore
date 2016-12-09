@@ -8,7 +8,6 @@
 *.orig
 
 /dev
-/dist
 /static
 /backup
 /test/debug
