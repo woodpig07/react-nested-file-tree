@@ -25,7 +25,7 @@ function NestedFileTreeView (props) {
   }
 
   return (
-    <ul data-level="0">
+    <ul data-level='0'>
       {
         directory && directory['_contents'].map(file => {
           return (

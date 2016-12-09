@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import FileView from './FileView'
 
 class FolderView extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       open: props.expended || false
@@ -47,11 +47,11 @@ class FolderView extends Component {
 
     return (
       <li key={`folder-${name}`} className={open ? `open ${cns}` : cns}>
-        { 
-          folderTemplate && folderTemplate({ name, onclick: this.toggleFolder.bind(this) })
-          || <a onClick={::this.toggleFolder}>/{name}</a>
+        {
+          folderTemplate && folderTemplate({ name, onclick: this.toggleFolder.bind(this) }) ||
+          <a onClick={::this.toggleFolder}>/{name}</a>
         }
-        
+
         <ul style={styl} data-level={level}>
           {
             folderObj && folderObj['_contents'].map(f => {

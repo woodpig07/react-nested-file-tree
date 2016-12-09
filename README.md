@@ -164,7 +164,7 @@ For example, given `maxFolderLevel={2}`, then only 2 level of folders are render
 
 #### expended
 
-All folders are expended by default. If given `expended={false}`, then all folders would be collapsed until user click on it to expend.
+All folders are collapsed by default. If given `expended={true}`(`true` can be omitted), then all folders would be expended until user click on it to collapse.
 
 #### fileClickHandler
 

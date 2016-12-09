@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const FileView = (props) => {
   let { file,
@@ -21,8 +21,8 @@ const FileView = (props) => {
       className={cns}
       onClick={onclickFn}>
       {
-        fileTemplate && fileTemplate({ name: file.name })
-        || <a>|__{file.name}</a>
+        fileTemplate && fileTemplate({ name: file.name }) ||
+        <a>|__{file.name}</a>
       }
     </li>
   )

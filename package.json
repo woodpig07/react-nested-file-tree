@@ -1,6 +1,6 @@
 {
   "name": "react-nested-file-tree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React component for file directory",
   "repository": {
     "type": "git",
@@ -60,10 +60,19 @@
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
     "sinon": "^1.17.6",
+    "snazzy": "^5.0.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "standard": {
+    "ignore": [
+      "/dist/",
+      "/lib/",
+      "karma.conf.js"
+    ],
+    "parser": "babel-eslint"
   }
 }

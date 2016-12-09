@@ -1,7 +1,8 @@
+/* eslint-env mocha */
 import chai from 'chai'
 import chaiEnzyme from 'chai-enzyme'
-import React, {Component} from 'react'
-import {mount, render, shallow} from 'enzyme'
+import React from 'react'
+import {mount} from 'enzyme'
 import sinon from 'sinon/pkg/sinon'
 
 import NestedFileTreeView from '../NestedFileTreeView'
@@ -67,5 +68,4 @@ describe('<NestedFileTreeView />', () => {
     expect(firstFolder).to.exist
     expect(firstFolder.text()).equal('folder_1')
   })
-
 })

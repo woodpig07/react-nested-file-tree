@@ -15,18 +15,18 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
       }
     }),
     new ExtractTextPlugin('default.css')
   ],
   externals: {
     react: {
-      root: "React",
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "react"
+      root: 'React',
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react'
     }
   },
   module: {
