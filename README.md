@@ -1,5 +1,4 @@
 # react-nested-file-tree
-=========
 
 React component for presenting file-directory-tree-like structured data.
 
@@ -229,3 +228,4 @@ function CustomFile (props) {
 - `npm install` to install dependency
 - `npm test` to run tests
 - `npm run example` to run development server on `localhost:8080`
+- `npm run build:dist` to build distribution package
