@@ -2,6 +2,10 @@
   "name": "nested-file-tree",
   "version": "0.0.1",
   "description": "React component for file directory",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woodpig07/react-nested-file-tree.git"
+  },
   "main": "lib/NestedFileTreeView.js",
   "style": "dist/default.css",
   "scripts": {
