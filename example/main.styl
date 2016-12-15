@@ -11,7 +11,8 @@ h2
   font-size 1.4em
 
 .container
-  max-width 40em
+  min-width 40em
+  max-width 80em
   width 100%
   margin auto
   padding 0 1em
@@ -24,4 +25,29 @@ svg
   margin-top 2px
   width 18px
 
+pre
+  white-space pre-wrap
+  white-space -moz-pre-wrap
+  white-space -o-pre-wrap
+  word-wrap break-word
+  margin 0
+
+.demo,
+.code
+  display inline-block
+  width 100%
+  vertical-align top
+  
+.code
+  border-radius 5px
+  -moz-border-radius 5px
+  -webkit-border-radius 5px
+  background-color #F9F9F9
+  @media (min-width: 60em)
+    margin-left 2%
+    width 58%
+.demo
+  @media (min-width: 60em)
+    width 38%
+  
   

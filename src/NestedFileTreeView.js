@@ -6,6 +6,7 @@ function NestedFileTreeView (props) {
   const { directory,
     maxFolderLevel,
     expended,
+    className,
     fileClickHandler,
     folderClickHandler,
     fileClassName,
@@ -25,7 +26,7 @@ function NestedFileTreeView (props) {
   }
 
   return (
-    <ul data-level='0'>
+    <ul data-level='0' className={className}>
       {
         directory && directory['_contents'].map(file => {
           return (
@@ -48,6 +49,7 @@ function NestedFileTreeView (props) {
               maxFolderLevel={maxFolderLevel}
               folderObj={directory[prop]}
               name={prop}
+              parentPath=''
               folderClickHandler={folderClickHandler}
               folderTemplate={folderTemplate}
               {...passedProps} />
@@ -62,6 +64,7 @@ NestedFileTreeView.propTypes = {
   directory: PropTypes.object.isRequired,
   maxFolderLevel: PropTypes.number,
   expended: PropTypes.bool,
+  className: PropTypes.string,
   fileClickHandler: PropTypes.func,
   folderClickHandler: PropTypes.func,
   fileClassName: PropTypes.string,

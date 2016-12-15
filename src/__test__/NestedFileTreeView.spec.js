@@ -37,13 +37,15 @@ describe('<NestedFileTreeView />', () => {
     expect(callback.getCall(0).args[0]['name']).equal('.gitignore')
   })
 
-  it('should call callback function and pass in folder name when given folderClickHandler()', () => {
+  it('should call callback function and pass in three parameters when given folderClickHandler()', () => {
     var callback = sinon.spy()
     const wrapper = mount(<NestedFileTreeView directory={data} folderClickHandler={callback} />)
 
     wrapper.find('.subFolder > a').at(0).simulate('click')
     expect(callback.called).to.be.true
     expect(callback.getCall(0).args[0]).equal('folder_1')
+    expect(callback.getCall(0).args[1]).equal('/folder_1')
+    expect(callback.getCall(0).args[2]['_contents'][0]['name']).equal('2016-9-10-new-file.md')
   })
 
   it('should render custom file component if given fileTemplate function', () => {

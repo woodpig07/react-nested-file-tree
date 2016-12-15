@@ -175,9 +175,9 @@ function ({name, path}) {}
 
 #### folderClickHandler
 
-A callback function for folder name click event handler, the folder name string will be passed in:
+A callback function for folder name click event handler, the folder name string, current folder path, and folder Object will be passed in as parameters:
 ```
-function (name) {}
+function (name, currentPath, folderObj) {}
 ``` 
 
 #### fileClassName
@@ -200,11 +200,11 @@ By default the selected file element will has class name `active`, you can pass 
 
 You can create your own stateless folder component `folderTemplate={CustomFolder}` like this:
 ```javascript
-function CustomFolder (props) {
+function CustomFolder ({ name, currentPath, folderObj, onclick }) {
   return (
-    <a onClick={props.onclick}>
+    <a onClick={onclick}>
       <span className='icon'>other stuff</span>
-      {props.name}
+      {name}
     </a>
   )
 }

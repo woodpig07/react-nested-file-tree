@@ -11,15 +11,19 @@ class FolderView extends Component {
 
   toggleFolder () {
     const { open } = this.state
+    const { name, parentPath, folderObj } = this.props
+    const currentPath = parentPath + '/' + name
+
     this.setState({ open: !open }, () => {
       let fn = this.props.folderClickHandler
-      fn && fn(this.props.name)
+      fn && fn(name, currentPath, folderObj)
     })
   }
 
   render () {
     const { level,
       name,
+      parentPath,
       folderObj,
       maxFolderLevel,
       expended,
@@ -48,7 +52,13 @@ class FolderView extends Component {
     return (
       <li key={`folder-${name}`} className={open ? `open ${cns}` : cns}>
         {
-          folderTemplate && folderTemplate({ name, onclick: this.toggleFolder.bind(this) }) ||
+          folderTemplate &&
+          folderTemplate({
+            name,
+            folderObj,
+            currentPath: parentPath + '/' + name,
+            onclick: this.toggleFolder.bind(this)
+          }) ||
           <a onClick={::this.toggleFolder}>/{name}</a>
         }
 
@@ -77,6 +87,7 @@ class FolderView extends Component {
                     key={`folder-${name}-${prop}`}
                     level={level + 1}
                     name={prop}
+                    parentPath={parentPath + '/' + name}
                     folderObj={folderObj[prop]}
                     {...passedFolderProps} />
                 )
