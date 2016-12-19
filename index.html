@@ -3,25 +3,96 @@
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Nested-file-tree</title>
+    <title>Nested-file-tree Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
   </head>
   <body>
     <div class="container">
       <h1>Nested File Tree demo</h1>
+      <a href="https://github.com/woodpig07/react-nested-file-tree">Code and Docs on GitHub</a>
       <section>
         <h2>Directory with pre-selected file and file click handler</h2>
-        <div id="demo1"></div>        
+        <div id="demo1" class="demo"></div>
+        <div class="code"><pre><code>
+  class Demo1 extends Component {
+    constructor (props) {
+      super(props)
+      this.state = {
+        selectedFile: '.gitignore'
+      }
+    }
+
+    handleFileClick (file) {
+      console.log(file)
+      this.setState({ selectedFile: file.path })
+    }
+
+    render () {
+      return (
+        &lt;NestedFileTreeView
+          selectedFilePath={this.state.selectedFile}
+          fileClickHandler={::this.handleFileClick}
+          directory={directory} /&gt;
+      )
+    }
+  }
+        </code></pre></div>
       </section>
 
       <section>
         <h2>Directory with max folder level 3 and expend by default</h2>
-        <div id="demo2"></div>
+        <div id="demo2" class="demo"></div>
+        <div class="code"><pre><code>
+  function Demo2 () {
+    return (
+      &lt;NestedFileTreeView
+        expended
+        maxFolderLevel={3}
+        directory={directory} /&gt;
+    )
+  }
+        </code></pre></div>
       </section>
+
       <section>
         <h2>Directory with custom folder and file templates</h2>
-        <div id="demo3"></div>
-      </section>
+        <div id="demo3" class="demo"></div>
+        <div class="code"><pre><code>
+  function CustomFolder (props) {
+    return (
+      &lt;a onClick={props.onclick}&gt;&lt;span className='svg'
+        dangerouslySetInnerHTML={{__html: '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; baseProfile=&quot;full&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24.00 24.00&quot; enable-background=&quot;new 0 0 24.00 24.00&quot; xml:space=&quot;preserve&quot;&gt;' +
+        '&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;&gt;&lt;/path&gt;' +
+        '&lt;path d=&quot;M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z&quot;&gt;&lt;/path&gt;' +
+        '&lt;/svg&gt;'}} /&gt;
+        { props.name }
+      &lt;/a&gt;
+    )
+  }
+
+  function CustomFile (props) {
+    return (
+      &lt;a&gt;&lt;span className='svg'
+        dangerouslySetInnerHTML={{__html: '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; baseProfile=&quot;full&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24.00 24.00&quot; enable-background=&quot;new 0 0 24.00 24.00&quot; xml:space=&quot;preserve&quot;&gt;' +
+        '&lt;path d=&quot;M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z&quot;&gt;&lt;/path&gt;' +
+        '&lt;/svg&gt;'}} /&gt;
+        { props.name }
+      &lt;/a&gt;
+    )
+  }
+
+  function Demo3 () {
+    return (
+      &lt;NestedFileTreeView
+        expended
+        maxFolderLevel={3}
+        fileTemplate={CustomFile}
+        folderTemplate={CustomFolder}
+        directory={directory} /&gt;
+    )
+  }
+        </code></pre></div>
+      </section>    
     </div>
   <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="app.js"></script></body>
 </html>
