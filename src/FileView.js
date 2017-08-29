@@ -21,7 +21,7 @@ const FileView = (props) => {
       className={cns}
       onClick={onclickFn}>
       {
-        fileTemplate && fileTemplate({ name: file.name }) ||
+        fileTemplate && fileTemplate(file) ||
         <a>|__{file.name}</a>
       }
     </li>
